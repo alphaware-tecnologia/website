@@ -75,7 +75,6 @@
 }
 
 @theme inline {
-  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -118,19 +117,16 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
 @theme {
-  /* Fonts */
   --font-family-sans: var(--font-geist-sans);
   --font-family-mono: var(--font-geist-mono);
 
-  /* Restaurando as cores emerald originais como eram antes */
-
-  /* Colors - Emerald green como cor primária */
   --color-emerald-50: #ecfdf5;
   --color-emerald-100: #d1fae5;
   --color-emerald-200: #a7f3d0;
@@ -143,7 +139,6 @@
   --color-emerald-900: #064e3b;
   --color-emerald-950: #022c22;
 
-  /* Gray scale */
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
@@ -156,18 +151,15 @@
   --color-gray-900: #111827;
   --color-gray-950: #030712;
 
-  /* Removendo configurações que adicionavam bordas pretas */
   --color-background: #ffffff;
   --color-foreground: #0a0a0a;
 
-  /* Border Radius */
   --radius: 0.625rem;
   --radius-lg: 0.75rem;
   --radius-md: 0.5rem;
   --radius-sm: calc(var(--radius) - 4px);
 }
 
-/* Removendo estilos globais que adicionavam bordas indesejadas */
 body {
   background-color: #ffffff;
   color: #0a0a0a;
@@ -178,7 +170,6 @@ body {
   text-wrap: balance;
 }
 
-/* Keyframes para animações */
 @keyframes accordion-down {
   from {
     height: 0;
