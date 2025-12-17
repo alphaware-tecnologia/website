@@ -23,7 +23,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-export default function HomePage() {
+const contacts = {
+  phone: "+55 (31) 99999-9999",
+  email: "alphaware_tecnologia@protonmail.com",
+};
+
+export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -166,7 +171,7 @@ export default function HomePage() {
 
               <div className="flex items-center space-x-8 pt-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">150+</div>
+                  <div className="text-2xl font-bold text-gray-900">80+</div>
                   <div className="text-sm text-gray-600">
                     Projetos Entregues
                   </div>
@@ -178,7 +183,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">8+</div>
+                  <div className="text-2xl font-bold text-gray-900">12+</div>
                   <div className="text-sm text-gray-600">
                     Anos de Experiência
                   </div>
@@ -265,13 +270,14 @@ export default function HomePage() {
                     <CheckCircle className="h-4 w-4 text-emerald-600 mr-2" />
                     iOS & Android nativos
                   </li>
+
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-emerald-600 mr-2" />
-                    React Native, Flutter
+                    Experiência do Usuário Intuitiva
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-emerald-600 mr-2" />
-                    Otimização para lojas
+                    Integração com Backend
                   </li>
                 </ul>
               </CardContent>
@@ -321,15 +327,11 @@ export default function HomePage() {
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-emerald-600 mr-2" />
-                    Criptografia de dados
+                    Teste de penetração (pentest)
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-emerald-600 mr-2" />
-                    Sistemas de autenticação
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-emerald-600 mr-2" />
-                    Frameworks de conformidade
+                    Desenvolvimento seguro
                   </li>
                 </ul>
               </CardContent>
@@ -409,7 +411,7 @@ export default function HomePage() {
                   Seu Parceiro de Tecnologia Confiável
                 </h2>
                 <p className="text-xl text-gray-600">
-                  Com mais de 8 anos de experiência, ajudamos empresas de
+                  Com mais de 12 anos de experiência, ajudamos empresas de
                   diversos setores a transformar suas operações através de
                   soluções de software personalizadas.
                 </p>
@@ -554,76 +556,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 lg:px-6">
-          <div className="text-center space-y-4 mb-16">
-            <Badge className="bg-emerald-100 text-emerald-800">Portfólio</Badge>
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900">
-              Casos de Sucesso
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore alguns de nossos projetos recentes e veja como ajudamos
-              empresas a alcançar seus objetivos através de software
-              personalizado.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="aspect-video bg-gradient-to-br from-emerald-400 to-emerald-600"></div>
-              <CardContent className="p-6">
-                <Badge className="mb-3">E-commerce</Badge>
-                <h3 className="text-xl font-semibold mb-2">
-                  Marketplace Multi-vendedor
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Construímos uma plataforma de marketplace abrangente com
-                  gestão de vendedores, processamento de pagamentos e análises.
-                </p>
-                <div className="flex items-center text-emerald-600 font-medium">
-                  Ver Caso de Estudo <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="aspect-video bg-gradient-to-br from-purple-400 to-purple-600"></div>
-              <CardContent className="p-6">
-                <Badge className="mb-3">Saúde</Badge>
-                <h3 className="text-xl font-semibold mb-2">
-                  Sistema de Gestão de Pacientes
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Desenvolvemos um sistema compatível com HIPAA para gerenciar
-                  prontuários médicos e agendamento de consultas.
-                </p>
-                <div className="flex items-center text-emerald-600 font-medium">
-                  Ver Caso de Estudo <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="aspect-video bg-gradient-to-br from-orange-400 to-orange-600"></div>
-              <CardContent className="p-6">
-                <Badge className="mb-3">Financeiro</Badge>
-                <h3 className="text-xl font-semibold mb-2">
-                  Plataforma de Investimentos
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Criamos uma plataforma segura de investimentos com negociações
-                  em tempo real e recursos de gestão de portfólio.
-                </p>
-                <div className="flex items-center text-emerald-600 font-medium">
-                  Ver Caso de Estudo <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-emerald-600">
         <div className="container mx-auto px-4 lg:px-6 text-center">
@@ -641,14 +573,7 @@ export default function HomePage() {
                 variant="secondary"
                 className="text-lg px-8 bg-white text-emerald-600 hover:bg-gray-100"
               >
-                Agendar Consultoria
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-lg px-8 border-white text-white hover:bg-white hover:text-emerald-600 bg-transparent"
-              >
-                Orçamento Gratuito
+                Quero Conversar Com um Especialista
               </Button>
             </div>
           </div>
@@ -680,7 +605,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <div className="font-semibold">Telefone</div>
-                    <div className="text-gray-600">+55 (11) 99999-9999</div>
+                    <div className="text-gray-600">{contacts.phone}</div>
                   </div>
                 </div>
 
@@ -690,7 +615,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <div className="font-semibold">Email</div>
-                    <div className="text-gray-600">contato@alphaware.com</div>
+                    <div className="text-gray-600">{contacts.email}</div>
                   </div>
                 </div>
               </div>
@@ -701,7 +626,7 @@ export default function HomePage() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/5511999999999"
+        href={`https://wa.me/${contacts.phone.replaceAll(/\D/g, "")}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110 z-50"
@@ -786,34 +711,28 @@ export default function HomePage() {
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <Link
-                    href="#"
+                    href="#about"
                     className="hover:text-emerald-400 transition-colors"
                   >
                     Sobre Nós
                   </Link>
                 </li>
+
                 <li>
                   <Link
-                    href="#"
+                    href="#services"
                     className="hover:text-emerald-400 transition-colors"
                   >
-                    Nossa Equipe
+                    Serviços
                   </Link>
                 </li>
+
                 <li>
                   <Link
-                    href="#"
+                    href="#contact"
                     className="hover:text-emerald-400 transition-colors"
                   >
-                    Carreiras
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-emerald-400 transition-colors"
-                  >
-                    Blog
+                    Contato
                   </Link>
                 </li>
               </ul>
@@ -822,13 +741,8 @@ export default function HomePage() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Contato</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>+55 (11) 99999-9999</li>
-                <li>contato@alphaware.com</li>
-                <li>
-                  Rua da Tecnologia, 123
-                  <br />
-                  São Paulo, SP 01234-000
-                </li>
+                <li>{contacts.phone}</li>
+                <li>{contacts.email}</li>
               </ul>
             </div>
           </div>
