@@ -18,14 +18,18 @@ import {
   Menu,
   Phone,
   Mail,
+  Facebook,
+  Instagram,
+  Youtube,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const contacts = {
-  phone: "+55 (31) 99999-9999",
+  phone: "+55 (31) 98489-4667",
   email: "alphaware_tecnologia@protonmail.com",
+  whatsappLink: "https://wa.me/message/W3DVZAVZXYEWL1",
 };
 
 export default function Page() {
@@ -243,7 +247,7 @@ export default function Page() {
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-emerald-600 mr-2" />
-                    Segurança Empresarial
+                    Segurança Avançada
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-emerald-600 mr-2" />
@@ -603,9 +607,17 @@ export default function Page() {
                   <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
                     <Phone className="h-6 w-6 text-emerald-600" />
                   </div>
+
                   <div>
                     <div className="font-semibold">Telefone</div>
-                    <div className="text-gray-600">{contacts.phone}</div>
+                    <a
+                      href={contacts.whatsappLink}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="text-gray-600"
+                    >
+                      {contacts.phone}
+                    </a>
                   </div>
                 </div>
 
@@ -615,7 +627,12 @@ export default function Page() {
                   </div>
                   <div>
                     <div className="font-semibold">Email</div>
-                    <div className="text-gray-600">{contacts.email}</div>
+                    <a
+                      href={`mailto:${contacts.email}`}
+                      className="text-gray-600"
+                    >
+                      {contacts.email}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -626,7 +643,7 @@ export default function Page() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href={`https://wa.me/${contacts.phone.replaceAll(/\D/g, "")}`}
+        href={contacts.whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110 z-50"
@@ -657,13 +674,19 @@ export default function Page() {
               </p>
               <div className="flex space-x-4">
                 <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">Li</span>
+                  <span className="text-sm font-bold">
+                    <Facebook />
+                  </span>
                 </div>
                 <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">Tw</span>
+                  <span className="text-sm font-bold">
+                    <Instagram />
+                  </span>
                 </div>
                 <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">Gh</span>
+                  <span className="text-sm font-bold">
+                    <Youtube />
+                  </span>
                 </div>
               </div>
             </div>
