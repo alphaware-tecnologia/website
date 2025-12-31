@@ -198,7 +198,7 @@ export default function Page() {
             <div className="relative">
               <div className="relative z-10">
                 <Image
-                  src="/hero-software-development.jpg"
+                  src="hero-software-development.jpg"
                   alt="Desenvolvimento de Software Personalizado"
                   width={600}
                   height={600}
@@ -485,7 +485,7 @@ export default function Page() {
 
             <div className="relative">
               <Image
-                src="/team-collaboration.jpg"
+                src="team-collaboration.jpg"
                 alt="Nossa Equipe"
                 width={600}
                 height={500}
