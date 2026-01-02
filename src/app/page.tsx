@@ -10,7 +10,6 @@ import {
   Zap,
   Users,
   CheckCircle,
-  ArrowRight,
   Star,
   Clock,
   Target,
@@ -30,12 +29,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-
-const contacts = {
-  phone: "+55 (31) 98489-4667",
-  email: "alphaware_tecnologia@protonmail.com",
-  whatsappLink: "https://wa.me/message/W3DVZAVZXYEWL1",
-};
+import contacts from "@/config/contacts";
+import CTAButton from "@/components/ui/cta-button";
 
 export default function Page() {
   return (
@@ -86,9 +81,7 @@ export default function Page() {
             </nav>
 
             <div className="hidden lg:flex items-center space-x-4">
-              <Button className="bg-emerald-600 hover:bg-emerald-700">
-                Converse com um especialista
-              </Button>
+              <CTAButton />
             </div>
 
             {/* Mobile Navigation */}
@@ -123,12 +116,7 @@ export default function Page() {
                     Contato
                   </Link>
                   <div className="pt-4 space-y-2">
-                    <Button variant="outline" className="w-full bg-transparent">
-                      Solicitar Orçamento
-                    </Button>
-                    <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                      Iniciar Projeto
-                    </Button>
+                    <CTAButton />
                   </div>
                 </div>
               </SheetContent>
@@ -159,13 +147,8 @@ export default function Page() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8"
-                >
-                  Iniciar Seu Projeto
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <CTAButton className="text-lg px-8" />
+
                 <Button
                   size="lg"
                   variant="outline"
@@ -574,13 +557,7 @@ export default function Page() {
               software personalizado podem impulsionar seu negócio.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="text-lg px-8 bg-white text-emerald-600 hover:bg-gray-100"
-              >
-                Quero Conversar Com um Especialista
-              </Button>
+              <CTAButton className="text-lg px-8 bg-white text-emerald-600 hover:bg-gray-100" />
             </div>
           </div>
         </div>
