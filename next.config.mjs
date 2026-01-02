@@ -4,7 +4,7 @@ const nextConfig = {
     unoptimized: true,
   },
   output: "export",
-  basePath: "/website",
+  basePath: process.env.NEXT_BUILD === "true" ? "/website" : undefined,
 };
 
 export default nextConfig;

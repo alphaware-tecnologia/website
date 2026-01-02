@@ -24,7 +24,12 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const contacts = {
   phone: "+55 (31) 98489-4667",
@@ -37,9 +42,9 @@ export default function Page() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="border-b bg-white/95 backdrop-blur supports-backdrop-filter:bg-white/60 sticky top-0 z-50">
-        <div className="container mx-auto px-4 lg:px-6">
+        <div className="lg:container mx-auto px-4 lg:px-6">
           <div className="flex h-16 items-center justify-between">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 md:whitespace-nowrap">
               <Code2 className="h-8 w-8 text-emerald-600" />
               <span className="text-xl font-bold text-gray-900">
                 Alphaware Tecnologia
@@ -47,7 +52,7 @@ export default function Page() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-8 mx-2">
               <Link
                 href="#services"
                 className="text-gray-600 hover:text-emerald-600 transition-colors"
@@ -80,20 +85,16 @@ export default function Page() {
               </Link>
             </nav>
 
-            <div className="hidden md:flex items-center space-x-4">
-              <Button
-                variant="outline"
-                className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent"
-              >
-                Solicitar Orçamento
-              </Button>
+            <div className="hidden lg:flex items-center space-x-4">
               <Button className="bg-emerald-600 hover:bg-emerald-700">
-                Iniciar Projeto
+                Converse com um especialista
               </Button>
             </div>
 
             {/* Mobile Navigation */}
             <Sheet>
+              <SheetTitle className="hidden">Menu</SheetTitle>
+
               <SheetTrigger asChild>
                 <Button
                   variant="outline"
@@ -103,8 +104,9 @@ export default function Page() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
+
               <SheetContent>
-                <div className="flex flex-col space-y-4 mt-8">
+                <div className="flex flex-col space-y-4 mt-8 px-10">
                   <Link href="#services" className="text-lg font-medium">
                     Serviços
                   </Link>
@@ -629,7 +631,7 @@ export default function Page() {
                     <div className="font-semibold">Email</div>
                     <a
                       href={`mailto:${contacts.email}`}
-                      className="text-gray-600"
+                      className="text-gray-600 break-all"
                     >
                       {contacts.email}
                     </a>
@@ -765,7 +767,7 @@ export default function Page() {
               <h3 className="text-lg font-semibold mb-4">Contato</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>{contacts.phone}</li>
-                <li>{contacts.email}</li>
+                <li className="break-all">{contacts.email}</li>
               </ul>
             </div>
           </div>
