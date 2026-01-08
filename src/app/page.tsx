@@ -652,21 +652,16 @@ export default function Page() {
                 inovadoras e personalizadas.
               </p>
               <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">
-                    <Facebook />
-                  </span>
-                </div>
-                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
+                <a
+                  href={contacts.instagramLink}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer"
+                >
                   <span className="text-sm font-bold">
                     <Instagram />
                   </span>
-                </div>
-                <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors cursor-pointer">
-                  <span className="text-sm font-bold">
-                    <Youtube />
-                  </span>
-                </div>
+                </a>
               </div>
             </div>
 
