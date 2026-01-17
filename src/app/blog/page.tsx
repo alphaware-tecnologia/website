@@ -33,14 +33,17 @@ export default async function BlogPage() {
                 key={post.slug}
                 className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg overflow-hidden"
               >
-                <div className="relative h-48 overflow-hidden">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="relative h-48 overflow-hidden"
+                >
                   <Image
                     src={post.image || "/placeholder.svg"}
                     alt={post.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                </div>
+                </Link>
 
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-3">
@@ -56,9 +59,11 @@ export default async function BlogPage() {
                     </span>
                   </div>
 
-                  <h2 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
-                    {post.title}
-                  </h2>
+                  <Link href={`/blog/${post.slug}`}>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                      {post.title}
+                    </h2>
+                  </Link>
 
                   <p className="text-gray-600 mb-4 line-clamp-2">
                     {post.description}
