@@ -2,8 +2,8 @@ export const metadata = {
   title: "Segurança em Aplicações Web: Melhores Práticas",
   description:
     "Aprenda as melhores práticas de segurança para proteger suas aplicações web contra vulnerabilidades e ataques cibernéticos.",
-  date: "2024-01-10",
-  author: "Maria Santos",
+  date: "2026-01-06",
+  author: "Alphaware Tecnologia",
   category: "Segurança",
   image: "/blog/web-security-cybersecurity.jpg",
   keywords: [
@@ -35,6 +35,13 @@ XSS permite que atacantes injetem scripts maliciosos em páginas web:
 - Use Content Security Policy (CSP)
 - Encode dados de saída corretamente
 
+### Cross-Site Request Forgery (CSRF)
+
+CSRF engana usuários autenticados para executar ações indesejadas:
+
+- Utilize tokens CSRF
+- Use cookies com a flag SameSite definida como Strict ou Lax
+
 ## Práticas Essenciais
 
 1. **HTTPS em Todo Lugar**: Criptografe todas as comunicações
@@ -42,12 +49,22 @@ XSS permite que atacantes injetem scripts maliciosos em páginas web:
 3. **Atualizações Regulares**: Mantenha frameworks e dependências atualizados
 4. **Logs e Monitoramento**: Detecte atividades suspeitas rapidamente
 5. **Backup Regular**: Tenha planos de recuperação de desastres
+6. **Treinamento de Equipe**: Treinar seus colaboradores sobre segurança cibernética é crucial para evitar erros humanos. O elo mais fraco na segurança muitas vezes é o fator humano, portanto, invista em programas de conscientização e capacitação contínua.
+7. **Consulte o OWASP Top 10**: Recomenda-se consultar regularmente o OWASP Top 10 para entender as vulnerabilidades mais críticas em aplicações web. Acesse a lista oficial e materiais de suporte em: [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/) e incorpore essas categorias em seus requisitos de segurança, testes (SAST/DAST) e revisões de código.
+8. **Zero Trust Architecture**: Adote uma abordagem de segurança baseada no princípio do "nunca confiar, sempre verificar". Isso inclui segmentação de rede, autenticação rigorosa e monitoramento contínuo para minimizar o risco de violações internas e externas.
+9. **Proteção contra DDoS**: Implemente soluções de mitigação de DDoS para proteger suas aplicações contra ataques de negação de serviço distribuída, garantindo a disponibilidade contínua dos serviços.
+10. **Revisões de Código e Testes de Segurança**: Realize revisões de código regulares e testes de segurança automatizados para identificar e corrigir vulnerabilidades antes que possam ser exploradas.
 
 ## Ferramentas Recomendadas
 
 - **OWASP ZAP**: Análise de vulnerabilidades
 - **Snyk**: Verificação de dependências
 - **SonarQube**: Análise de código estático
+- **Burp Suite**: Testes de penetração em aplicações WEB
+- **Let's Encrypt**: Certificados SSL gratuitos
+- **ModSecurity**: Firewall de aplicações web (WAF)
+
+Existem muitas outras ferramentas disponíveis, escolha as que melhor se adequam às necessidades do seu projeto.
 
 ## Conclusão
 
