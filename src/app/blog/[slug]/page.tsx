@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
 import contacts from "@/config/contacts";
-import posts from "@/config/posts";
+import { getPosts } from "@/lib/posts";
 import { ArrowLeft, Badge, Calendar, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export async function generateStaticParams() {
+  const posts = await getPosts();
+
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -17,7 +19,7 @@ export default async function BlogPost({
   params: Promise<{ slug: string }>;
 }) {
   const { default: Post, metadata } = await import(
-    "@/content/" + (await params).slug + ".mdx"
+    "@/blog-posts/" + (await params).slug + ".mdx"
   );
 
   return (

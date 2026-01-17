@@ -3,9 +3,11 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import posts from "@/config/posts";
+import { getPosts } from "@/lib/posts";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await getPosts();
+
   return (
     <main>
       {/* Hero Section */}
