@@ -57,12 +57,15 @@ export default function RootLayout({
           <header className="border-b bg-white/95 backdrop-blur supports-backdrop-filter:bg-white/60 sticky top-0 z-50">
             <div className="lg:container mx-auto px-4 lg:px-6">
               <div className="flex h-16 items-center justify-between">
-                <div className="flex items-center space-x-2 md:whitespace-nowrap">
+                <Link
+                  href="/"
+                  className="flex items-center space-x-2 md:whitespace-nowrap"
+                >
                   <Code2 className="h-8 w-8 text-emerald-600" />
                   <span className="text-xl font-bold text-gray-900">
                     Alphaware Tecnologia
                   </span>
-                </div>
+                </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-8 mx-2">
