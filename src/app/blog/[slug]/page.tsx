@@ -4,10 +4,11 @@ import { getPosts } from "@/lib/posts";
 import { ArrowLeft, Badge, Calendar, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+
+const posts = await getPosts();
 
 export async function generateStaticParams() {
-  const posts = await getPosts();
-
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -18,9 +19,23 @@ export default async function BlogPost({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { default: Post, metadata } = await import(
-    "@/blog-posts/" + (await params).slug + ".mdx"
-  );
+  const { slug } = await params;
+
+  // Validate slug
+  const slugIsValid = typeof slug === "string" && slug.match(/^[a-z0-9-]+$/);
+  if (!slugIsValid) {
+    notFound();
+    return;
+  }
+
+  // Check if post exists
+  const postsExists = posts.some((post) => post.slug === slug);
+  if (!postsExists) {
+    notFound();
+    return;
+  }
+
+  const { default: Post, metadata } = await import(`@/blog-posts/${slug}.mdx`);
 
   return (
     <main>
