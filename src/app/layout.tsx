@@ -141,8 +141,11 @@ export default function RootLayout({
                       <Link href="#process" className="text-lg font-medium">
                         Processo
                       </Link>
-                      <Link href="#portfolio" className="text-lg font-medium">
-                        Portfólio
+                      <Link
+                        href="/blog"
+                        className="text-gray-600 hover:text-emerald-600 transition-colors"
+                      >
+                        Blog
                       </Link>
                       <Link href="#contact" className="text-lg font-medium">
                         Contato
