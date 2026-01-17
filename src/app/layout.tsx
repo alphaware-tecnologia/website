@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import contacts from "@/config/contacts";
+import Script from "next/script";
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
@@ -52,6 +53,16 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className="font-sans antialiased">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-N86XMKFK"
+            height="0"
+            width="0"
+            className="hidden invisible"
+            title="Tag Manager"
+          ></iframe>
+        </noscript>
+
         <div className="min-h-screen bg-white">
           {/* Header */}
           <header className="border-b bg-white/95 backdrop-blur supports-backdrop-filter:bg-white/60 sticky top-0 z-50">
@@ -306,6 +317,8 @@ export default function RootLayout({
             </div>
           </footer>
         </div>
+
+        <Script src="/js/script.js" />
       </body>
     </html>
   );
