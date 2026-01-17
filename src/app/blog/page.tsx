@@ -86,7 +86,9 @@ export default async function BlogPage() {
                     </Badge>
 
                     <span className="text-sm text-gray-500">
-                      {new Date(post.date).toLocaleDateString("pt-BR")}
+                      {new Date(post.date).toLocaleDateString("pt-BR", {
+                        timeZone: "UTC",
+                      })}
                     </span>
                   </div>
 

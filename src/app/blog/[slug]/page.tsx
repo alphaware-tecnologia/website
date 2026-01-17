@@ -134,6 +134,7 @@ export default async function BlogPost({ params }: Props) {
                   day: "numeric",
                   month: "long",
                   year: "numeric",
+                  timeZone: "UTC",
                 })}
               </div>
             </div>
