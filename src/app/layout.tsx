@@ -20,6 +20,28 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Alphaware Tecnologia",
   description: "Soluções em software personalizadas para o seu negócio.",
+  keywords: [
+    "desenvolvimento de software",
+    "aplicativos web",
+    "aplicativos mobile",
+    "sistemas corporativos",
+    "soluções em nuvem",
+    "tecnologia personalizada",
+  ],
+  openGraph: {
+    title: "Alphaware Tecnologia",
+    description: "Soluções em software personalizadas para o seu negócio.",
+    url: "https://www.alphaware.com.br",
+    siteName: "Alphaware Tecnologia",
+    images: [
+      {
+        url: "https://www.alphaware.com.br/logo.jpg",
+        alt: "Alphaware Tecnologia",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

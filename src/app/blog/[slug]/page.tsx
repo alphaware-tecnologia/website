@@ -1,10 +1,18 @@
 import { Button } from "@/components/ui/button";
 import contacts from "@/config/contacts";
-import { getPosts } from "@/lib/posts";
+import { getPosts, type PostMetadata } from "@/lib/posts";
 import { ArrowLeft, Badge, Calendar, User } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { ComponentType } from "react";
+
+type Props = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
 
 const posts = await getPosts();
 
@@ -14,11 +22,54 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPost({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+
+  // Validate slug
+  const slugIsValid = typeof slug === "string" && slug.match(/^[a-z0-9-]+$/);
+  if (!slugIsValid) {
+    return {
+      title: "Postagem não encontrada",
+      description: "A postagem que você está procurando não existe.",
+    };
+  }
+
+  // Check if post exists
+  const postsExists = posts.some((post) => post.slug === slug);
+  if (!postsExists) {
+    return {
+      title: "Postagem não encontrada",
+      description: "A postagem que você está procurando não existe.",
+    };
+  }
+
+  // Import the post metadata
+  const { metadata }: { metadata: PostMetadata } = await import(
+    `@/blog-posts/${slug}.mdx`
+  );
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+    keywords: metadata.keywords,
+    openGraph: {
+      title: metadata.title,
+      description: metadata.description,
+      url: `https://www.alphaware.com.br/blog/${slug}`,
+      type: "article",
+      publishedTime: metadata.date,
+      authors: [metadata.author],
+      images: [
+        {
+          url: `https://www.alphaware.com.br${metadata.image ?? "/placeholder.svg"}`,
+          alt: metadata.title,
+        },
+      ],
+    },
+  };
+}
+
+export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
 
   // Validate slug
@@ -35,7 +86,14 @@ export default async function BlogPost({
     return;
   }
 
-  const { default: Post, metadata } = await import(`@/blog-posts/${slug}.mdx`);
+  // Import the post component and metadata
+  const {
+    default: Post,
+    metadata,
+  }: {
+    default: ComponentType;
+    metadata: PostMetadata;
+  } = await import(`@/blog-posts/${slug}.mdx`);
 
   return (
     <main>

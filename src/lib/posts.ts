@@ -4,24 +4,26 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export interface Post {
+export interface PostMetadata {
   title: string;
   description: string;
   date: string;
   author: string;
   category: string;
   image: string;
-  slug: string;
+  keywords: string[];
 }
 
-export async function getPosts(): Promise<Post[]> {
+type PostMetadataWithSlug = PostMetadata & { slug: string };
+
+export async function getPosts(): Promise<PostMetadataWithSlug[]> {
   const mdxFiles = glob(join(__dirname, "..", "blog-posts", "*.mdx"));
-  const posts: Post[] = [];
+  const posts: PostMetadataWithSlug[] = [];
 
   for await (const filePath of mdxFiles) {
     const slug = basename(filePath, ".mdx");
 
-    const { metadata }: { metadata: Omit<Post, "slug"> } = await import(
+    const { metadata }: { metadata: Omit<PostMetadata, "slug"> } = await import(
       `@/blog-posts/${slug}.mdx`
     );
 

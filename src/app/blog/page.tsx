@@ -4,6 +4,37 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { getPosts } from "@/lib/posts";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Alphaware Tecnologia | Blog",
+  description:
+    "Fique por dentro das últimas tendências em desenvolvimento de software, aplicativos web e mobile, e soluções tecnológicas inovadoras.",
+  keywords: [
+    "desenvolvimento de software",
+    "aplicativos web",
+    "aplicativos mobile",
+    "sistemas corporativos",
+    "soluções em nuvem",
+    "tecnologia personalizada",
+    "blog",
+  ],
+  openGraph: {
+    title: "Alphaware Tecnologia | Blog",
+    description:
+      "Fique por dentro das últimas tendências em desenvolvimento de software, aplicativos web e mobile, e soluções tecnológicas inovadoras.",
+    url: "https://www.alphaware.com.br/blog",
+    siteName: "Alphaware Tecnologia",
+    images: [
+      {
+        url: "https://www.alphaware.com.br/logo.jpg",
+        alt: "Alphaware Tecnologia",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+};
 
 export default async function BlogPage() {
   const posts = await getPosts();
