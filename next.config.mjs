@@ -6,6 +6,7 @@ const nextConfig = {
     unoptimized: true,
   },
   output: "export",
+  trailingSlash: true,
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
