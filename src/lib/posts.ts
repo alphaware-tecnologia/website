@@ -1,6 +1,7 @@
 import { glob } from "node:fs/promises";
 import { dirname, join, basename } from "node:path";
 import { fileURLToPath } from "node:url";
+import { fileExists } from "./utils";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -31,4 +32,10 @@ export async function getPosts(): Promise<PostMetadataWithSlug[]> {
   }
 
   return posts;
+}
+
+export async function existPost(slug: string): Promise<boolean> {
+  const blogPostPath = join(__dirname, "..", "blog-posts", `${slug}.mdx`);
+
+  return fileExists(blogPostPath);
 }

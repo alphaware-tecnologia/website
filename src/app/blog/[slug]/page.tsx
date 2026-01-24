@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import contacts from "@/config/contacts";
-import { getPosts, type PostMetadata } from "@/lib/posts";
+import { existPost, getPosts, type PostMetadata } from "@/lib/posts";
 import { ArrowLeft, Badge, Calendar, User } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -14,9 +14,9 @@ type Props = {
   }>;
 };
 
-const posts = await getPosts();
-
 export async function generateStaticParams() {
+  const posts = await getPosts();
+
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -35,8 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   // Check if post exists
-  const postsExists = posts.some((post) => post.slug === slug);
-  if (!postsExists) {
+  if (!(await existPost(slug))) {
     return {
       title: "Postagem não encontrada",
       description: "A postagem que você está procurando não existe.",
@@ -80,8 +79,7 @@ export default async function BlogPost({ params }: Props) {
   }
 
   // Check if post exists
-  const postsExists = posts.some((post) => post.slug === slug);
-  if (!postsExists) {
+  if (!(await existPost(slug))) {
     notFound();
     return;
   }
